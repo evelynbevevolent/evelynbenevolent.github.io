@@ -1,1 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evelyn Benevolent — Poet & Writer</title>
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+        :root {
+            --black: #11100f;
+            --cream: #eee8dc;
+            --burgundy: #5a2029;
+            --muted: #aaa094;
+            --line: rgba(238, 232, 220, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            width: 100%;
+            padding: 28px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.55;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(90, 32, 41, 0.6);
+            border-radius: 50%;
+            right: -130px;
+            top: 12%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            color: var(--muted);
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(4rem, 10vw, 9rem);
+            font-weight: 500;
+            line-height: 0.82;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            max-width: 520px;
+            margin-top: 42px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: #d7d0c5;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 120px 8%;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 45px;
+        }
+
+        /* BOOK */
+
+        .book-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .book-placeholder {
+            aspect-ratio: 3 / 4;
+            max-width: 420px;
+            background: var(--burgundy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .book-placeholder span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .book-info h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 500;
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .book-info p {
+            max-width: 520px;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+
+        .release {
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            border: 1px solid var(--cream);
+            padding: 13px 25px;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: var(--cream);
+            color: var(--black);
+        }
+
+        /* WRITING */
+
+        .writing-intro {
+            max-width: 850px;
+        }
+
+        .writing-intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 400;
+            line-height: 0.95;
+            margin-bottom: 35px;
+        }
+
+        .writing-intro p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        /* LATEST */
+
+        .latest {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .latest-card {
+            border-top: 1px solid var(--line);
+            padding-top: 25px;
+        }
+
+        .latest-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .latest-card p {
+            color: var(--muted);
+            max-width: 500px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .about h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 400;
+            line-height: 0.9;
+        }
+
+        .about-text {
+            color: var(--muted);
+            max-width: 550px;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 70px 8%;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+        }
+
+        .footer-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+        }
+
+        .socials {
+            display: flex;
+            gap: 25px;
+            font-size: 0.7rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .socials a:hover {
+            opacity: 0.55;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 22px 6%;
+            }
+
+            .nav-links {
+                gap: 14px;
+                font-size: 0.62rem;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 70px 7%;
+            }
+
+            h1 {
+                font-size: clamp(3.5rem, 17vw, 6rem);
+            }
+
+            .hero-description {
+                font-size: 1.25rem;
+            }
+
+            section {
+                padding: 80px 7%;
+            }
+
+            .book-feature,
+            .about,
+            .latest {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .book-placeholder {
+                max-width: 100%;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .socials {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <a href="#" class="logo">Evelyn Benevolent</a>
+
+        <ul class="nav-links">
+            <li><a href="#books">Books</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="eyebrow">Poet · Writer · Observer</div>
+
+                <h1>Evelyn<br>Benevolent</h1>
+
+                <p class="hero-description">
+                    Writing about memory, desire, grief, identity,
+                    and the strange intimacy of being alive.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- BOOK -->
+
+        <section id="books">
+
+            <div class="section-label">01 — Books</div>
+
+            <div class="book-feature">
+
+                <div class="book-placeholder">
+                    <span>Living<br>Mourning</span>
+                </div>
+
+                <div class="book-info">
+
+                    <div class="release">
+                        Releasing December 2, 2026
+                    </div>
+
+                    <h2>Living<br>Mourning</h2>
+
+                    <p>
+                        A poetry collection exploring death, rebirth,
+                        life, memory, and the things we learn to carry.
+                    </p>
+
+                    <a href="#" class="button">
+                        Explore the Book
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WRITING -->
+
+        <section id="writing">
+
+            <div class="section-label">02 — The Writing</div>
+
+            <div class="writing-intro">
+
+                <h2>
+                    Words for the
+                    things that linger.
+                </h2>
+
+                <p>
+                    Evelyn Benevolent is a poet and writer whose work
+                    moves through literature, art, memory, desire,
+                    grief, identity, and the intimate strangeness
+                    of ordinary life.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- LATEST -->
+
+        <section>
+
+            <div class="section-label">03 — Latest</div>
+
+            <div class="latest">
+
+                <div class="latest-card">
+
+                    <h3>Substack</h3>
+
+                    <p>
+                        Essays, observations, poetry, and pieces
+                        from the ongoing archive.
+                    </p>
+
+                    <br>
+
+                    <a href="#" class="button">
+                        Visit Substack
+                    </a>
+
+                </div>
+
+
+                <div class="latest-card">
+
+                    <h3>New Writing</h3>
+
+                    <p>
+                        More writing, projects, and things currently
+                        being made.
+                    </p>
+
+                    <br>
+
+                    <a href="#writing" class="button">
+                        Explore
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="section-label">04 — About</div>
+
+            <div class="about">
+
+                <h2>
+                    About<br>Evelyn
+                </h2>
+
+                <div class="about-text">
+
+                    <p>
+                        Eve is a poet and writer based in New Jersey,
+                        interested in the intersections of memory,
+                        desire, grief, identity, literature, and art.
+                    </p>
+
+                    <p>
+                        Her work is interested in what remains:
+                        the memories we distort, the people we carry,
+                        and the places that continue to exist inside us.
+                    </p>
+
+                    <a href="#" class="button">
+                        More About Eve
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-name">
+            Evelyn Benevolent
+        </div>
+
+        <div class="socials">
+            <a href="#">Substack</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">Contact</a>
+        </div>
+
+    </footer>
+
+</body>
+</html>
