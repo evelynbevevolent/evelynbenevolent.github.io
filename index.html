@@ -152,22 +152,29 @@
             align-items: center;
         }
 
-        .book-placeholder {
-            aspect-ratio: 3 / 4;
-            max-width: 420px;
-            background: var(--burgundy);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            text-align: center;
-        }
+       .book-placeholder {
+    aspect-ratio: 3 / 4;
+    max-width: 420px;
+    background: var(--burgundy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+}
 
-        .book-placeholder span {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 5vw, 4rem);
-            line-height: 0.95;
-            text-transform: uppercase;
+.book-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.book-placeholder span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 0.95;
+    text-transform: uppercase;
         }
 
         .book-info h2 {
